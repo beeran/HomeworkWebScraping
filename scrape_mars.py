@@ -7,6 +7,10 @@ import pandas as pd
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
     return Browser('chrome', **executable_path, headless=True)
+    #You may want to uncomment and try if you are using a Mac. My program works for Windoes, please make sure you download the chromedriver.exe from my github.
+    #/usr/local/bin/chromedriver
+    #executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    #return Browser('chrome', **executable_path, headless=False)
 
 
 def try_(fn):
