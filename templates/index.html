@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars weather</title>
+    <!-- Bring in our bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <style>
+        .fill-img img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Misson to Mars</h1>
+                <a href="/scrape">Scrape</a>
+            </div>
+            <div class="col-md-12">
+                <h2>Latest Mars News</h2>
+                <h4>{{ data.news_title }}</h4>
+                <p>{{ data.news_p }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Features Mars Image</h2>
+                <img src='{{ data.featured_image_url }}' />
+            </div>
+            <div class="col-md-4">
+                <div>Current weather</div>
+                <div>
+                    <h4>Mars Facts</h4>
+                    {{ data.facts_table_html|safe }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Mars Hemispheres</h2>
+            </div>
+            {% for row in data.hemispheres %}
+            <div class="col-md-6">
+                <img src="{{ row['image_url'] }}" />
+                <h4>{{ row['title'] }}</h4>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
